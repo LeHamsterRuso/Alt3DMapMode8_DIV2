@@ -128,7 +128,7 @@ end
 - Maximum FPS value detected
 - RAM used
 - RAM available */
-FUNCTION writeDebugInfo()
+PROCESS writeDebugInfo()
 PRIVATE
     mem_used;
     mem_free;
