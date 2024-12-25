@@ -10,7 +10,7 @@ CONST
     SCREEN_SIZE_Y = 480;     /* Used for screem resolution */
     GAME_FPS=60;             /* Frames per second */
     FRAMESKIP=10;            /* Frame skip */
-    IS_DEBUG = 1;            /* 1 = shows debug info */
+    IS_DEBUG = 0;            /* 1 = shows debug info */
     TOTAL_MEMORY_MB = 32;    /* Define here your RAM memory */
     ADVANCE_UNIT = 40;       /* Step speed */
 
