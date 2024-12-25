@@ -6,13 +6,13 @@
 PROGRAM NEWER_SCROLLS;
 
 CONST
-    SCREEN_SIZE_X = 320;     /* Used for screem resolution */
-    SCREEN_SIZE_Y = 200;     /* Used for screem resolution */
-    GAME_FPS=60;            /* Frames per second */
+    SCREEN_SIZE_X = 640;     /* Used for screem resolution */
+    SCREEN_SIZE_Y = 480;     /* Used for screem resolution */
+    GAME_FPS=60;             /* Frames per second */
     FRAMESKIP=10;            /* Frame skip */
     IS_DEBUG = 0;            /* 1 = shows debug info */
     TOTAL_MEMORY_MB = 32;    /* Define here your RAM memory */
-    ADVANCE_UNIT = 40;        /* Step speed */
+    ADVANCE_UNIT = 40;       /* Step speed */
 
 
     FILE_WLD = "HELP\WLD_VIEW.WLD";    /* Map to load */
@@ -23,14 +23,6 @@ GLOBAL
     max_fps = 0;
     min_fps = 100;
 
-PRIVATE
-    mouse_xBefore;
-    zBefore;
-    jumpHeight;
-    isJumping;
-    originalHeight;
-    originalEyeHeight;
-
 BEGIN
     set_mode(SCREEN_SIZE_X*1000 + SCREEN_SIZE_Y);
     set_fps(GAME_FPS,FRAMESKIP);
@@ -40,8 +32,23 @@ BEGIN
     load_fpg(FILE_FPG);
     load_wld(FILE_WLD,0);
 
-    start_mode8(id,0,0);
+    camera();
+END
 
+
+/*****************
+    Main camera
+******************/
+PROCESS camera()
+PRIVATE
+    mouse_xBefore;
+    zBefore;
+    jumpHeight;
+    isJumping;
+    originalHeight;
+    originalEyeHeight;
+BEGIN
+    start_mode8(id, 0, 0);
     ctype=c_m8;
     height=128;
     radius=64;
@@ -86,7 +93,7 @@ BEGIN
             end
         end
 
-        /* Jump */
+        /* Jump and gravity */
         if (key(_space) and not isJumping and zBefore == z)
             isJumping = 1;
             jumpHeight = 30;
