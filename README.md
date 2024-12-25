@@ -2,6 +2,7 @@
 
 This program allows navigation through 3D maps (mode 8) of DIV2 Games Studio with modern controls:
 You can move the camera with the mouse, jump by pressing the spacebar, move using the WASD keys, duck holding control and run by holding the spacebar.
+In this link there is an example of gameplay: [https://www.youtube.com/watch?v=nmAo820fvyQ]
 
 How to build:
 The program is designed to be compiled using DIV2 Games Studio, a game development framework for MS-DOS, compatible also with Windows 95 and Windows 98.
@@ -22,4 +23,4 @@ There is a routine that displays information about the actual frames per second 
 
 License :
 Copyright (c) 2024 Sebastián José Moncho Maquet (aka Le Hamster ruso)
-All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation for any purpose is not granted without explicit prior permission from the copyright holder.
+All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation for any purpose is not granted without explicit prior permission from the copyright holder. If you're a developer, I don't mind if you copy and paste parts of my code, just make sure to include me in the acknowledgments of your credits.
