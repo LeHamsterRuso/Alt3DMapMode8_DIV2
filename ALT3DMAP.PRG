@@ -3,7 +3,7 @@
     Le Hamster ruso, 2024
 */
 
-PROGRAM NEWER_SCROLLS;
+PROGRAM ALT3DMAP;
 
 CONST
     SCREEN_SIZE_X = 640;     /* Used for screem resolution */
