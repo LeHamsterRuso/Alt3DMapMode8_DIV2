@@ -10,29 +10,24 @@ CONST
     SCREEN_SIZE_Y = 480;     /* Used for screem resolution */
     GAME_FPS=60;             /* Frames per second */
     FRAMESKIP=10;            /* Frame skip */
-    IS_DEBUG = 0;            /* 1 = shows debug info */
+    IS_DEBUG = 1;            /* 1 = shows debug info */
     TOTAL_MEMORY_MB = 32;    /* Define here your RAM memory */
     ADVANCE_UNIT = 40;       /* Step speed */
 
 
     FILE_WLD = "HELP\WLD_VIEW.WLD";    /* Map to load */
     FILE_FPG = "HELP\WLD_VIEW.FPG";    /* Map's textures */
-GLOBAL
-    mem_used;
-    mem_free;
-    max_fps = 0;
-    min_fps = 100;
 
 BEGIN
     set_mode(SCREEN_SIZE_X*1000 + SCREEN_SIZE_Y);
     set_fps(GAME_FPS,FRAMESKIP);
 
-    if (IS_DEBUG) writeDebugInfo(); end
-
     load_fpg(FILE_FPG);
     load_wld(FILE_WLD,0);
 
     camera();
+
+    if (IS_DEBUG) writeDebugInfo(); end
 END
 
 
@@ -62,13 +57,6 @@ BEGIN
     originalEyeHeight = m8.height;
 
     loop
-        if (IS_DEBUG)
-            mem_free = memory_free();
-            mem_used = (TOTAL_MEMORY_MB * 1024) - mem_free;
-            if (min_fps > fps) min_fps = fps; end
-            if (max_fps < fps) max_fps = fps; end
-        end
-
         if (key(_esc)) exit("Bye", 0); end
 
         /* Lateral movement */
@@ -141,10 +129,25 @@ end
 - RAM used
 - RAM available */
 FUNCTION writeDebugInfo()
+PRIVATE
+    mem_used;
+    mem_free;
+    max_fps = 0;
+    min_fps = 100;
+
 BEGIN
     write_int(0, 0, 0, 0, &fps);
     write_int(0, 0, 8, 0, &min_fps);
     write_int(0, 0, 16, 0, &max_fps);
     write_int(0, 0, 24, 0, &mem_used);
     write_int(0, 0, 32, 0, &mem_free);
+
+    loop
+        mem_free = memory_free();
+        mem_used = (TOTAL_MEMORY_MB * 1024) - mem_free;
+        if (min_fps > fps) min_fps = fps; end
+        if (max_fps < fps) max_fps = fps; end
+
+        frame;
+    end
 END
