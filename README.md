@@ -23,4 +23,4 @@ There is a routine that displays information about the actual frames per second 
 
 License :
 Copyright (c) 2024 Sebastián José Moncho Maquet (aka Le Hamster ruso).
-All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation for any purpose is not granted without explicit prior permission from the copyright holder. If you're a developer, I don't mind if you copy and paste parts of my code, just make sure to include me in the acknowledgments of your credits.
+All rights reserved. Permission to use, copy, modify, and distribute this software and its documentation for any purpose is not granted without explicit prior permission from the copyright holder (comandantecobra@gmail.com). If you're a developer, I don't mind if you copy and paste parts of my code, just make sure to include me in the acknowledgments of your credits.
