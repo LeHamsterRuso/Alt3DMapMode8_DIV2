@@ -1,4 +1,4 @@
-# Alternative 3D Map Viewer in Mode 8 for DIV 2 Games Studio
+# Alternative 3D Map Viewer for Mode 8 in DIV 2 Games Studio
 
 This program allows navigation through 3D maps (mode 8) of DIV2 Games Studio with modern controls:
 You can move the camera with the mouse, jump by pressing the spacebar, move using the WASD keys, duck holding control and run by holding the spacebar.
